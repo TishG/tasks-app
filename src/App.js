@@ -14,6 +14,12 @@ class App extends Component {
     }
   }
 
+  handleDelete(selectedTask) {
+    const { tasks } = this.state;
+    let newTasks = tasks.filter(task => task !== selectedTask );
+    this.setState({ tasks : newTasks });
+  }
+
   render() {
     const { tasks } = this.state;
     return (
@@ -27,6 +33,8 @@ class App extends Component {
               key={ index }
               description={ task.description }
               isCompleted={ task.isCompleted }
+              tasks={ tasks }
+              handleDelete={() => this.handleDelete(task)}
             /> )
           }
         </ul>
