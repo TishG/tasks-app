@@ -10,8 +10,24 @@ class App extends Component {
               { description: "Walk the dog", isCompleted: true},
               { description: "Clean my room", isCompleted: false },
               { description: "Study for my assessment", isCompleted: false}
-            ]
+            ],
+      newTask: " "
     }
+  }
+
+  // componentWillMount() {
+  //   localStorage.getItem("tasks") && this.setState({
+  //     tasks: JSON.parse(localStorage.getItem("tasks"))
+  //   })
+  // }
+  //
+  // componentWillUpdate(nextProps, nextState) {
+  //   localStorage.setItem("tasks", JSON.stringify(nextState.tasks));
+  //
+  // }
+
+  handleNewTask(e) {
+    this.setState({ newTask: e.target.value});
   }
 
   handleDelete(selectedTask) {
@@ -21,7 +37,7 @@ class App extends Component {
   }
 
   render() {
-    const { tasks } = this.state;
+    const { tasks, newTask } = this.state;
     return (
       <React.Fragment>
         <h1>Conquer your Tasks</h1>
@@ -35,9 +51,22 @@ class App extends Component {
               isCompleted={ task.isCompleted }
               tasks={ tasks }
               handleDelete={() => this.handleDelete(task)}
+
             /> )
           }
         </ul>
+        <section className="new-task">
+          <input
+          type="text"
+          value={ newTask }
+          onChange={(e) => this.handleNewTask(e)}
+          />
+          <input
+          type="button"
+          value="Add"
+
+          />
+        </section>
       </React.Fragment>
     );
   }
