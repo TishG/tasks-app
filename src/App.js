@@ -15,16 +15,24 @@ class App extends Component {
     }
   }
 
-  // componentWillMount() {
-  //   localStorage.getItem("tasks") && this.setState({
-  //     tasks: JSON.parse(localStorage.getItem("tasks"))
-  //   })
-  // }
-  //
-  // componentWillUpdate(nextProps, nextState) {
-  //   localStorage.setItem("tasks", JSON.stringify(nextState.tasks));
-  //
-  // }
+  componentWillMount() {
+    localStorage.getItem("tasks") && this.setState({
+      tasks: JSON.parse(localStorage.getItem("tasks"))
+    })
+  }
+
+  componentWillUpdate(nextProps, nextState) {
+    localStorage.setItem("tasks", JSON.stringify(nextState.tasks));
+
+  }
+
+  addTask(e) {
+    e.preventDefault();
+    const { tasks, newTask } = this.state;
+    if (!this.state.newTask) { return }
+    const newTasks = { description: newTask, isCompleted: false };
+    this.setState({ tasks: [...tasks, newTasks], newTask: " " });
+  }
 
   handleNewTask(e) {
     this.setState({ newTask: e.target.value});
@@ -55,18 +63,21 @@ class App extends Component {
             /> )
           }
         </ul>
-        <section className="new-task">
+        <form
+        className="new-task"
+        onSubmit={(e) => this.addTask(e)}>
           <input
           type="text"
           value={ newTask }
           onChange={(e) => this.handleNewTask(e)}
           />
           <input
-          type="button"
+          type="submit"
           value="Add"
-
           />
-        </section>
+        </form>
+        <p>{tasks.length} tasks </p>
+        <p> # tasks completed </p>
       </React.Fragment>
     );
   }
