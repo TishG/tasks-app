@@ -9,14 +9,16 @@ class Task extends Component {
 }
 
   render() {
-    const { description, tasks, isCompleted, handleDelete } = this.props;
+    const { description, tasks, isCompleted, handleDelete, handleToggle } = this.props;
     const { color } = this.state;
     return (
             <React.Fragment>
               <li>
               <input
               type="checkbox"
-              defaultChecked={ isCompleted }
+              defaultChecked= { isCompleted }
+              onChange={ handleToggle }
+
               />
               <span style={tasks.length < 3 ? { color: "red" } : { color: color }}>
               { description }

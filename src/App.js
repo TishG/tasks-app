@@ -23,8 +23,14 @@ class App extends Component {
 
   componentWillUpdate(nextProps, nextState) {
     localStorage.setItem("tasks", JSON.stringify(nextState.tasks));
-
   }
+
+    handleToggle(index) {
+      const tasks = this.state.tasks.slice();
+      const task = tasks[index];
+      task.isCompleted = task.isCompleted ? false : true;
+      this.setState({ tasks : tasks });
+    }
 
   addTask(e) {
     e.preventDefault();
@@ -57,6 +63,7 @@ class App extends Component {
               key={ index }
               description={ task.description }
               isCompleted={ task.isCompleted }
+              handleToggle={() => this.handleToggle(index)}
               tasks={ tasks }
               handleDelete={() => this.handleDelete(task)}
 
@@ -77,7 +84,8 @@ class App extends Component {
           />
         </form>
         <p>{tasks.length} tasks </p>
-        <p> # tasks completed </p>
+        <p> { tasks.filter(task => task.isCompleted).length } task(s) completed </p>
+        <p> { tasks.filter(task => !task.isCompleted).length } task(s) not completed </p>
       </React.Fragment>
     );
   }
