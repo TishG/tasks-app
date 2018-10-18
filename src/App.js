@@ -54,7 +54,7 @@ class App extends Component {
     const { tasks, newTask } = this.state;
     return (
       <React.Fragment>
-        <h1>Conquer your Tasks</h1>
+        <h1 id="app-title">Conquer your Tasks</h1>
         <p className="app-instructions"> Add atleast three things to complete when you wake up. </p>
         <p className="app-instructions"> Complete and check off those tasks by the end of the day. </p>
         <ul>
@@ -66,7 +66,6 @@ class App extends Component {
               handleToggle={() => this.handleToggle(index)}
               tasks={ tasks }
               handleDelete={() => this.handleDelete(task)}
-
             /> )
           }
         </ul>
@@ -79,6 +78,7 @@ class App extends Component {
           onChange={(e) => this.handleNewTask(e)}
           />
           <input
+          id="add-button"
           type="submit"
           value="Add"
           />

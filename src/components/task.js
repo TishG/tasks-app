@@ -13,7 +13,7 @@ class Task extends Component {
     const { color } = this.state;
     return (
             <React.Fragment>
-              <li>
+              <li style={isCompleted ? {textDecoration: "line-through"} : {textDecoration: "none"}}>
               <input
               type="checkbox"
               defaultChecked= { isCompleted }
@@ -23,7 +23,7 @@ class Task extends Component {
               <span style={tasks.length < 3 ? { color: "red" } : { color: color }}>
               { description }
               </span>
-              <button onClick={ handleDelete }> Delete </button>
+              <button className="delete-button" onClick={ handleDelete }> Delete </button>
               </li>
             </React.Fragment>
     );
