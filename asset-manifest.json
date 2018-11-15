@@ -1,13 +1,6 @@
 {
-  "main.css": "/tasks-app/static/css/main.5b1d1ab1.chunk.css",
-  "main.js": "/tasks-app/static/js/main.2f48f50f.chunk.js",
-  "main.js.map": "/tasks-app/static/js/main.2f48f50f.chunk.js.map",
-  "static/js/1.2b20e43a.chunk.js": "/tasks-app/static/js/1.2b20e43a.chunk.js",
-  "static/js/1.2b20e43a.chunk.js.map": "/tasks-app/static/js/1.2b20e43a.chunk.js.map",
-  "runtime~main.js": "/tasks-app/static/js/runtime~main.fc9dc0d7.js",
-  "runtime~main.js.map": "/tasks-app/static/js/runtime~main.fc9dc0d7.js.map",
-  "static/css/main.5b1d1ab1.chunk.css.map": "/tasks-app/static/css/main.5b1d1ab1.chunk.css.map",
-  "index.html": "/tasks-app/index.html",
-  "precache-manifest.b569ca33a2383870ffba0eff1b24e24a.js": "/tasks-app/precache-manifest.b569ca33a2383870ffba0eff1b24e24a.js",
-  "service-worker.js": "/tasks-app/service-worker.js"
+  "main.css": "static/css/main.1ff847e9.css",
+  "main.css.map": "static/css/main.1ff847e9.css.map",
+  "main.js": "static/js/main.d0808537.js",
+  "main.js.map": "static/js/main.d0808537.js.map"
 }
